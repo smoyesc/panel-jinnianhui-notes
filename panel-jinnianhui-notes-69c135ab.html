@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金年会 · 再次造访指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #f7e9df 0%, #fcecdd 40%, #f5e0cf 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem 3rem;
+            color: #3d2e24;
+            line-height: 1.6;
+        }
+
+        .page-wrap {
+            max-width: 1080px;
+            width: 100%;
+        }
+
+        /* ---------- 轻量导航 ---------- */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.4rem;
+            background: rgba(255, 245, 235, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 60px;
+            box-shadow: 0 2px 12px rgba(170, 120, 80, 0.08);
+            margin-bottom: 2.8rem;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .top-nav .brand {
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+            color: #7b5a42;
+        }
+
+        .top-nav .nav-links {
+            display: flex;
+            gap: 1.6rem;
+            font-size: 0.95rem;
+        }
+
+        .top-nav .nav-links a {
+            text-decoration: none;
+            color: #5d4432;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.25s, color 0.2s;
+        }
+
+        .top-nav .nav-links a:hover {
+            border-bottom-color: #b5835a;
+            color: #2f1f15;
+        }
+
+        .nav-links .highlight-link {
+            font-weight: 500;
+            color: #7b4a2c;
+        }
+
+        /* ---------- hero 区域 ---------- */
+        .hero-card {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            padding: 2.6rem 2.4rem 3rem;
+            box-shadow: 0 20px 40px -16px rgba(120, 80, 50, 0.20);
+            border: 1px solid #f7e2d2;
+            margin-bottom: 2.8rem;
+        }
+
+        .hero-card h1 {
+            font-size: 2.2rem;
+            font-weight: 620;
+            letter-spacing: -0.02em;
+            color: #3f2b1d;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-card .subhead {
+            font-size: 1.1rem;
+            color: #6e5542;
+            margin-bottom: 1.2rem;
+            max-width: 70%;
+        }
+
+        .hero-card p {
+            font-size: 1rem;
+            color: #4c3828;
+            max-width: 85%;
+        }
+
+        .hero-card p a {
+            color: #9b6d4b;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid #dbb99b;
+            transition: background 0.2s;
+        }
+
+        .hero-card p a:hover {
+            background: #faeade;
+        }
+
+        /* ---------- 场景三模块 ---------- */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-bottom: 2.6rem;
+        }
+
+        .scene-card {
+            background: white;
+            border-radius: 32px;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 8px 20px rgba(140, 100, 70, 0.08);
+            transition: transform 0.2s, box-shadow 0.25s;
+            border: 1px solid #f7e6d8;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 32px -10px rgba(140, 100, 70, 0.15);
+        }
+
+        .scene-card .icon-symbol {
+            font-size: 2rem;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            color: #b5835a;
+        }
+
+        .scene-card h3 {
+            font-size: 1.3rem;
+            font-weight: 550;
+            margin-bottom: 0.5rem;
+            color: #3b2a1c;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #594434;
+            margin-bottom: 0.8rem;
+        }
+
+        .scene-card .card-link {
+            display: inline-block;
+            margin-top: 0.3rem;
+            color: #8a5f3f;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 40px;
+            padding: 0.2rem 0.8rem 0.2rem 0.2rem;
+            transition: background 0.2s;
+        }
+
+        .scene-card .card-link:hover {
+            background: #f1ddd0;
+        }
+
+        /* ---------- 常见说明/faq ---------- */
+        .faq-section {
+            background: #fdf6f0;
+            border-radius: 40px;
+            padding: 2rem 2.2rem 2.4rem;
+            margin-bottom: 2.2rem;
+            border: 1px solid #edd9c9;
+        }
+
+        .faq-section h2 {
+            font-size: 1.6rem;
+            font-weight: 550;
+            color: #3f2c1d;
+            margin-bottom: 1.4rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item .q {
+            font-weight: 540;
+            color: #553d2b;
+            margin-bottom: 0.1rem;
+        }
+
+        .faq-item .a {
+            color: #4b3728;
+            padding-left: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item .a a {
+            color: #8a5f3f;
+            text-decoration: none;
+            border-bottom: 1px dotted #bc9a7e;
+        }
+
+        .faq-item .a a:hover {
+            border-bottom-style: solid;
+            background: #f1ddd0;
+        }
+
+        /* ---------- 收藏提示 ---------- */
+        .bookmark-note {
+            background: #ffffffcc;
+            border-radius: 60px;
+            padding: 1.1rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #edd3c0;
+            font-size: 0.98rem;
+            color: #4e3928;
+            margin-top: 0.2rem;
+        }
+
+        .bookmark-note span {
+            background: #f1d9c8;
+            padding: 0.15rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 470;
+        }
+
+        .bookmark-note a {
+            color: #7b4a2c;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid #dbb99b;
+        }
+
+        .bookmark-note a:hover {
+            background: #fbeee5;
+        }
+
+        /* ---------- 页脚 ---------- */
+        .footer-note {
+            margin-top: 2.4rem;
+            font-size: 0.85rem;
+            color: #7c6654;
+            text-align: center;
+            border-top: 1px solid #e6d1c1;
+            padding-top: 1.4rem;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media screen and (max-width: 780px) {
+            .hero-card .subhead,
+            .hero-card p {
+                max-width: 100%;
+            }
+
+            .hero-card h1 {
+                font-size: 1.8rem;
+            }
+
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                border-radius: 32px;
+                padding: 1rem 1.2rem;
+            }
+
+            .top-nav .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .faq-section {
+                padding: 1.8rem 1.4rem;
+            }
+
+            .bookmark-note {
+                padding: 0.9rem 1.2rem;
+                border-radius: 40px;
+            }
+
+            .hero-card {
+                padding: 2rem 1.2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body { padding: 1.2rem 0.8rem; }
+            .hero-card h1 { font-size: 1.6rem; }
+            .scene-card { padding: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="brand">✦ 金年会 · 备忘</span>
+        <div class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+            <a href="#" class="highlight-link">收藏夹</a>
+        </div>
+    </nav>
+
+    <!-- hero 卡片：再次访问 + 收藏视角 -->
+    <div class="hero-card">
+        <h1>再次访问，就像翻到折角的那一页</h1>
+        <div class="subhead">收藏、回看、持续关注——用你习惯的方式保持联系</div>
+        <p>
+            有的人把链接放进书签，有的人记在备忘录，也有人每次直接搜索「<a href="https://panel-jinnianhui.com">金年会</a>」。
+            无论哪一种，只要你想回来，这里总有一个熟悉的落点。
+            页面不会频繁变动，重要的提示和常用入口都摆在相同的位置，减少再次摸索的时间。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <div class="icon-symbol">📎</div>
+            <h3>收藏之后</h3>
+            <p>将链接存入浏览器书签或笔记应用，下次从收藏夹直接点开。没有多余跳转，所见即上次离开时的结构。</p>
+            <a href="https://panel-jinnianhui.com" class="card-link">金年会</a>
+        </div>
+        <div class="scene-card">
+            <div class="icon-symbol">🔄</div>
+            <h3>再次确认</h3>
+            <p>隔了一段时间回来，想确认功能入口或常用说明是否还在。页面布局保持一贯的清晰分组，核心导航没有移位。</p>
+            <a href="https://panel-jinnianhui.com" class="card-link">金年会</a>
+        </div>
+        <div class="scene-card">
+            <div class="icon-symbol">📌</div>
+            <h3>持续留意</h3>
+            <p>不需要每日登录，但希望想查看时能快速定位。把页面添加到主屏幕或阅读列表，下次打开依然是熟悉的样子。</p>
+            <a href="https://panel-jinnianhui.com" class="card-link">金年会</a>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ摘要 -->
+    <div class="faq-section">
+        <h2>常见说明</h2>
+        <div class="faq-item">
+            <div class="q">• 我上次看到的页面内容和现在一样吗？</div>
+            <div class="a">核心结构与主要指引保持一致，细节调整会通过页面内的提示区域说明。如果长时间未访问，建议先浏览顶部的导航分区。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">• 如何快速回到这个页面？</div>
+            <div class="a">最直接的方式是记住<a href="https://panel-jinnianhui.com">金年会</a>这个地址，或者将当前页加入浏览器书签。移动端可以添加到主屏幕，获得类似应用的快捷图标。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">• 是否需要注册或登录才能使用？</div>
+            <div class="a">本页为信息介绍与导航用途，具体功能是否要求登录请以实际页面标注为准。通常浏览说明类内容无需额外注册。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">• 页面在手机上看会变形吗？</div>
+            <div class="a">布局针对不同屏幕做了适配，卡片和导航会自动调整宽度与间距。如果遇到显示问题，尝试刷新或旋转屏幕。</div>
+        </div>
+    </div>
+
+    <!-- 收藏提示 -->
+    <div class="bookmark-note">
+        <span>📑 再次访问小技巧</span>
+        将 <a href="https://panel-jinnianhui.com">金年会</a> 添加到浏览器书签栏，或使用“阅读列表”功能。下次从侧栏直接点开，无需重新输入。
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        内容整理于日常指引 · 页面结构稳定，适合长期收藏
+    </div>
+
+</div>
+</body>
+</html>
